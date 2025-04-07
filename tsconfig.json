@@ -1,20 +1,26 @@
 {
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": [
+		"@tsconfig/node20/tsconfig.json",
+		"@tsconfig/strictest/tsconfig.json",
+	],
 	"compilerOptions": {
 		// https://www.totaltypescript.com/tsconfig-cheat-sheet
 		/* transpiling */
 		"lib": [
-			"ES2023",
+			"ES2024",
+			"WebWorker"
 		],
 		"moduleResolution": "node10",
 		"module": "ESNext",
 		// where mjs is omitted. point package.json `exports` (import) / `module` field to these
-		"outDir": "dist/mjs",
+		"outDir": "dist",
 		"declaration": true,
 		"sourceMap": true,
 		/* base options */
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"target": "ES2022",
+		"target": "ES2024",
 		"allowJs": true,
 		"resolveJsonModule": true,
 		/* strictness */
@@ -25,9 +31,10 @@
 		"noUncheckedIndexedAccess": true,
 		"strictNullChecks": true,
 		"noImplicitThis": true,
+		"isolatedModules": false,
 		/* other */
 		// where types are omitted. point package.json `exports` (import and require) / `types` field to these
-		"declarationDir": "./dist/types",
+		"declarationDir": "dist",
 		"allowSyntheticDefaultImports": true,
 		"removeComments": true,
 		"preserveConstEnums": true,

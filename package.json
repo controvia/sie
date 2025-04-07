@@ -1,28 +1,23 @@
 {
-	"name": "@utily/library-template",
-	"version": "0.0.19",
-	"description": "Template library for Typescript.",
-	"author": "Utily Contributors",
+	"name": "@controvia/sie",
+	"version": "0.0.0",
+	"description": "SIE file (Swedish accounting) library for Controvia.",
+	"author": "Cogneco AB",
 	"license": "MIT",
-	"repository": "https://github.com/utily/library-template",
+	"repository": "https://github.com/controvia/sie",
 	"bugs": {
-		"url": "https://github.com/utily/library-template/issues"
+		"url": "https://github.com/controvia/sie/issues"
 	},
-	"homepage": "https://github.com/utily",
+	"homepage": "https://github.com/controvia",
 	"private": false,
 	"type": "module",
-	"main": "./dist/cjs/index.js",
-	"module": "./dist/mjs/index.js",
-	"types": "./dist/types/index.d.ts",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"import": {
-				"default": "./dist/mjs/index.js",
-				"types": "./dist/types/index.d.ts"
-			},
-			"require": {
-				"default": "./dist/cjs/index.js",
-				"types": "./dist/types/index.d.ts"
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
 			}
 		}
 	},
@@ -35,7 +30,7 @@
 	"scripts": {
 		"lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
 		"fix": "eslint '**/*.{ts,tsx}' --fix",
-		"build": "rimraf dist/* && tsc -p tsconfig.mjs.json && tsc -p tsconfig.cjs.json",
+		"build": "rimraf dist/* && tsc -p tsconfig.mjs.json",
 		"test": "vitest --run",
 		"coverage": "vitest --coverage",
 		"prepare": "npm run build",
@@ -43,16 +38,24 @@
 		"verify": "npm run build && npm run test && npm run lint && npm audit"
 	},
 	"devDependencies": {
-		"@types/node": "^22.10.2",
-		"@typescript-eslint/eslint-plugin": "8.18.1",
-		"@typescript-eslint/parser": "8.18.1",
-		"@vitest/coverage-v8": "^2.1.8",
+		"@tsconfig/node20": "^20.1.5",
+		"@tsconfig/strictest": "^2.0.5",
+		"@types/node": "^22.14.0",
+		"@typescript-eslint/eslint-plugin": "8.29.0",
+		"@typescript-eslint/parser": "8.29.0",
+		"@vitest/coverage-v8": "^3.1.1",
 		"eslint": "^8.56.0",
 		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"prettierx": "github:utily/prettierx#utily-20231004",
 		"rimraf": "^6.0.1",
-		"typescript": "5.7.2",
-		"vitest": "^2.1.8"
+		"typescript": "5.8.2",
+		"vitest": "^3.1.1"
+	},
+	"dependencies": {
+		"@controvia/model": "^0.2.0",
+		"isly": "^1.0.1-alpha.22",
+		"isoly": "^3.0.7-alpha.10",
+		"typedly": "^0.0.27"
 	}
 }
