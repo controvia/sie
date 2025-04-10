@@ -41,19 +41,19 @@
 		"@tsconfig/node20": "^20.1.5",
 		"@tsconfig/strictest": "^2.0.5",
 		"@types/node": "^22.14.0",
-		"@typescript-eslint/eslint-plugin": "8.29.0",
-		"@typescript-eslint/parser": "8.29.0",
+		"@typescript-eslint/eslint-plugin": "8.29.1",
+		"@typescript-eslint/parser": "8.29.1",
 		"@vitest/coverage-v8": "^3.1.1",
 		"eslint": "^8.56.0",
 		"eslint-plugin-prettierx": "github:utily/eslint-plugin-prettierx#utily-20231004",
 		"eslint-plugin-simple-import-sort": "^12.1.1",
 		"prettierx": "github:utily/prettierx#utily-20231004",
 		"rimraf": "^6.0.1",
-		"typescript": "5.8.2",
+		"typescript": "5.8.3",
 		"vitest": "^3.1.1"
 	},
 	"dependencies": {
-		"@controvia/model": "^0.2.0",
+		"@controvia/model": "^0.6.0",
 		"isly": "^1.0.1-alpha.22",
 		"isoly": "^3.0.7-alpha.10",
 		"typedly": "^0.0.27"

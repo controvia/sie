@@ -1,7 +1,6 @@
 import { isoly } from "isoly"
 import { controvia } from "@controvia/model"
 import { isly } from "isly"
-import { typedly } from "typedly"
 import { Account as _Account } from "./Account"
 import { Encoder } from "./Encoder"
 import { Entry as _Entry } from "./Entry"
@@ -191,14 +190,14 @@ export namespace File {
 		type: "organization",
 		value: File | undefined,
 		language?: isoly.Language
-	): controvia.Organization | undefined
+	): controvia.Organization.Creatable | undefined
 	export function to(type: "ledger", value: File | undefined, language?: isoly.Language): controvia.Ledger | undefined
 	export function to(
 		type: "organization" | "ledger",
 		value: File | undefined,
 		language: isoly.Language = "sv"
-	): controvia.Ledger | controvia.Organization | undefined {
-		let result: controvia.Ledger | controvia.Organization | undefined
+	): controvia.Ledger | controvia.Organization.Creatable | undefined {
+		let result: controvia.Ledger | controvia.Organization.Creatable | undefined
 		if (value)
 			switch (type) {
 				case "organization":
@@ -213,7 +212,7 @@ export namespace File {
 						chart: isly.string().get(value.type?.toLowerCase(), "bas2014"),
 						currency: value.currency ?? "SEK",
 						period: value.years[0],
-						accounts: typedly.Object.map(value.accounts, ([, account]) => {
+						accounts: Object.values(value.accounts).map(account => {
 							const opening = account?.opening?.[0]
 							const closing = account?.closing?.[0] ?? account?.result?.[0]
 							const result: controvia.Ledger.Account = {
@@ -223,7 +222,7 @@ export namespace File {
 							}
 							if (account.label)
 								(result.label ??= {})[language] = account.label
-							return [account.number, result]
+							return result
 						}),
 						journal: value.entries.map(entry => ({
 							series: entry.series,
